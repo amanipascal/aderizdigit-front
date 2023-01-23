@@ -3,7 +3,7 @@ import socketio from '@feathersjs/socketio-client';
 import io from 'socket.io-client';
 // const auth = require('@feathersjs/authentication-client');
 
-const socket = io(process.env.REACT_APP_API_URL, {transports: ['websocket'], forceNew: true });
+const socket = io('https://aderizdigit-backend.onrender.com', {transports: ['websocket'], forceNew: true });
 
 const client = feathers();
 

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export const feathersClient = feathers();
 
-const restClient = rest(process.env.REACT_APP_API_URL);
+const restClient = rest('https://aderizdigit-backend.onrender.com');
 // const restClient = rest("https://aderiz-digit.herokuapp.com");
 
 feathersClient.configure(restClient.axios(axios));
