@@ -1,0 +1,29 @@
+
+.auth-full-bg2 {
+    background-color: rgba(85, 110, 230, 0.75);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  @media (min-width: 1200px) {
+    .auth-full-bg2 {
+      height: 100vh;
+    }
+  }
+  .auth-full-bg2::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+    /* background: url("../images/bg-auth-overlay2.jpg"); */
+  
+ .auth-full-bg2 .bg-overlay2 {
+    background: url("./img_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+
+      
