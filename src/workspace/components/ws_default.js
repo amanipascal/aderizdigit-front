@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TableauEmbed from '../../shared/EmbedComponents/TableauEmbed';
 import MondayEmbeded from '../../shared/EmbedComponents/mondayEmbeded';
 
@@ -20,13 +20,14 @@ import JotFormEmbeded from '../../shared/EmbedComponents/JotFormEmbeded';
 const Ws_default = () => {
 
   //const [state] = React.useContext(Context)
+  const [state, setState] = useContext(Context)
 
   let { menu_id, user_id } = useParams();
 
   const [value, setValue] = React.useState('1');
 
   const [ApiBloks, setApiBloks] = React.useState([]);
-  const [wsData, setWsData] = React.useState({wsDesignation: "", wsDescription: ""});
+  // const [wsData, setWsData] = React.useState({wsDesignation: "", wsDescription: ""});
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -35,15 +36,11 @@ const Ws_default = () => {
   const buildWsContent = async () => {
     if (menu_id) {
       const menu = await client.service('menu').get(menu_id)
-      
-      setWsData({wsDesignation: menu.wsdesignation, wsDescription: menu.wsdescription})
+      setState({...state, selected_menu: menu })
+      // setWsData({wsDesignation: menu.wsdesignation, wsDescription: menu.wsdescription})
       const {wscontent} = menu
-      // console.log('menu ::: ', menu)
       if (wscontent && !!wscontent.length) {
-        // console.log('wscontent : ', wscontent)
-        // console.log('state.user_id : ', user_id)
         const user_wscontent = wscontent.find(wsc => wsc.user == user_id)
-        // console.log('user_wscontent : ::: ', user_wscontent)
         if (user_wscontent && user_wscontent.wscompList && !!user_wscontent.wscompList.length) {
           const comp_orders = user_wscontent.comp_orders ? user_wscontent.comp_orders : []
           const compList = user_wscontent.wscompList ? user_wscontent.wscompList : []
@@ -79,17 +76,15 @@ const Ws_default = () => {
 
   React.useEffect(() => {
     buildWsContent()
-    console.log('menu_id : ', menu_id)
+    //console.log('menu_id : ', menu_id)
   }, [menu_id])
 
   return (
       <Box sx={{ width: '100%', typography: 'body1', paddingX: '20px' }}>
-        <Box sx={{display:'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* <Box sx={{display:'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Typography variant='h6' > {wsData.wsDesignation} </Typography>
-        </Box>
-        <Box sx={{display:'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {/* <Typography variant="caption" display="block" gutterBottom> {wsData.wsDescription} </Typography> */}
-        </Box>
+        </Box> */}
+       
         {
             !!ApiBloks.length ? (
               <TabContext value={value} >

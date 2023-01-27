@@ -57,7 +57,7 @@ const dataToWs = async (menu_id) => {
     })
 }
 
-function derourerNested(nestedMenus) {
+function deroulerNested(nestedMenus) {
     return nestedMenus.map((sousmenu, i) => (
         <div key={i}>
             {
@@ -78,7 +78,7 @@ function derourerNested(nestedMenus) {
                         icon={<MdOutlineMenuBook style={{color:'yellow'}}/>}
                         >
                         {
-                            derourerNested(sousmenu.nested.map(n => n.child))
+                            deroulerNested(sousmenu.nested.map(n => n.child))
                         }    
                     </SubMenu>
                </React.Fragment>) 
@@ -105,7 +105,7 @@ function menu_items(menu_items) {
                         icon={<MdOutlineMenuBook style={{color:'yellow'}}/>}
                         >
                             {
-                                derourerNested(item.nested.map(n => n.child))
+                                deroulerNested(item.nested.map(n => n.child))
                             }
                         </SubMenu>
                     )

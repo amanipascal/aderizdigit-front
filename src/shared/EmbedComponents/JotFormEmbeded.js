@@ -5,6 +5,7 @@ import { Loop } from '@mui/icons-material';
 import TableViewIcon from '@mui/icons-material/TableView';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import JfDataTable from './JfDataTable'
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,19 +35,20 @@ const JotFormEmbeded = ({url, width, height}) => {
 
     return  (
         <Fragment>
-            <Grid container spacing={1} style={{height:'75vh'}}>
+            <Grid container spacing={1} style={{height:'75vh', width:'80vw'}}>
                 {
                     showData ? (
                     <Fragment>
-                        <Grid item xs={1} justifyContent="center" alignContent="center" alignItems={"flex-start"}>
-                        <Tooltip title="Aller au formulaire">
-                            <IconButton color="primary" size="large" onClick={() => setShowData(!showData)} aria-label="add to shopping cart">
-                                <ListAltIcon />
-                            </IconButton>
-                        </Tooltip>
-                        </Grid>
-                        <Grid item xs={11}>
-                                <JfDataTable url={url} />
+                        <Grid item xs={12}>
+                            <div style={{width: '100%'}}>
+                                <Tooltip title="Aller au formulaire">
+                                    <IconButton color="primary" size="large" onClick={() => setShowData(!showData)} aria-label="add to shopping cart">
+                                        <ListAltIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Link to={'#'} onClick={() => setShowData(!showData)} >Aller au formulaire</Link>
+                            </div>
+                            <JfDataTable url={url} />
                                 {/* <JfDataTable url={url} fileName={fileName} datasource={jtData} gblFilterFields={gblFilterFields} Cols={Cols} /> */}
                         </Grid>
                     </Fragment>): (
@@ -68,6 +70,7 @@ const JotFormEmbeded = ({url, width, height}) => {
                             </Grid>
                             
                         </Grid>
+
                         <Grid item xs={11}>
                             <Iframe allow="geolocation" 
                                 src={url}

@@ -1,18 +1,20 @@
 import { Typography } from '@mui/material';
-import React from 'react'
+import React, { useContext } from 'react'
 import {Row, Column} from 'simple-flexbox'
 import '../../assets/css/app.css'
+import { Context } from '../../shared/Store';
 import Account from './Account';
 
 const Main_header = ({handleCollapseChange}) => {
     const [userService, setUserService] = React.useState(null)
+    const [state] = useContext(Context)
 
     React.useEffect(() => {
         setUserService(localStorage.getItem('user_service'))
     }, [])
 
     React.useEffect(() => {
-       console.log('userService : ', userService)
+    //    console.log('userService : ', userService)
     }, [userService])
 
     
@@ -31,12 +33,18 @@ const Main_header = ({handleCollapseChange}) => {
             
             <Column vertical='center' horizontal='center' style={{width:'95%'}}>
                 <Row vertical='center' horizontal='flex-end' style={{width:'100%'}}>
-                    <Column vertical='center' horizontal='center' style={{width:'90%'}}>
-                        <Typography variant="h6" style={{color: 'white'}} gutterBottom>
+                    <Column vertical='center' horizontal='flex-start' style={{width:'20%'}}>
+                        <Typography variant="h5" style={{color: 'white', marginTop: "10px"}} gutterBottom>
                             {userService}
                         </Typography>
                     </Column>
-                    
+                    <Column vertical='center' horizontal='center' style={{width:'70%'}}>
+                        <Typography variant="h6" style={{color: 'white'}} gutterBottom>
+                            {
+                              state.selected_menu ? state.selected_menu.wsDesignation : ""
+                            }
+                        </Typography>
+                    </Column>
                     <Column vertical='center' horizontal='flex-end' style={{width:'5%'}}>
                         <Account/>
                     </Column>
