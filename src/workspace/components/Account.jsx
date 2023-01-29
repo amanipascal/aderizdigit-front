@@ -87,12 +87,12 @@ const Account = () => {
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}>
+      {/* <MenuItem onClick={handleClose}>
         <ListItemIcon>
            <SwitchAccountIcon color='primary' fontSize="small" />
         </ListItemIcon>
         <ListItemText>Mon compte</ListItemText>
-      </MenuItem>
+      </MenuItem> */}
       {/* {
         state.isAdmin && (
             <MenuItem onClick={handleClose}>
