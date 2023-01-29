@@ -122,19 +122,18 @@ const Login = ({change_component}) => {
                         <form noValidate>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email (code utilisateur)</label>
-                                {/* <input  ref={userRef} type="text" onChange={(e) => setCred('email', e.target.value)} value={credentials.email} className="form-control" id="email" placeholder="Entrer votre email"/> */}
                                 <input  type="text" onChange={(e) => setCred('email', e.target.value)} value={credentials.email} className="form-control" id="email" placeholder="Entrer votre email"/>
                             </div>
                             <div className="mb-3">
                                 {/* ------------------------------------ */}
-                                <div className="float-end">
+                                {/* <div className="float-end">
                                     <Link component="button" variant="body2"
                                       onClick={() => change_component('reset')} 
                                       className="text-muted"
                                     >
                                         Mot de passe oublié ?
                                     </Link>
-                                </div>
+                                </div> */}
                                 {/* ------------------------------------------ */}
                                 <label className="form-label">Mot de passe</label>
                                 <div className="input-group auth-pass-inputgroup">
@@ -145,19 +144,15 @@ const Login = ({change_component}) => {
                                 </div>
                             </div>
                             <div className="mb-3">
-                                {/* ------------------------------------ */}
-                                <div className="float-end">
-                                    <Link component="button" variant="body2"
-                                      onClick={() => change_component('reset')} 
-                                      className="text-muted"
-                                    >
-                                        Mot de passe oublié ?
-                                    </Link>
+                                <div className="float-start">
+                                {/* <button type="button" onClick={() => change_component('reset')} >  Mot de passe oublié ? </button> */}
+                                    <Link component="button" variant="body2" onClick={() => change_component('reset')} 
+                                      className="text-muted"> Mot de passe oublié ?  </Link>
                                 </div>
-                                {/* ------------------------------------------ */}
                             </div>
+                            <br/>
 
-                            <div className="form-check">
+                            <div className="form-check float-start w-100">
                                 <FormControlLabel 
                                     control={
                                         <Checkbox
@@ -171,18 +166,17 @@ const Login = ({change_component}) => {
                                     label="Souvenez-vous de moi" 
                                 />
                             </div>
-                            
-                            <div className="mt-3 mb-5 d-grid">
-                                <button onClick={(e) => onSubmit(e)} className="btn btn-success waves-effect waves-light" type="button"> Connection </button>
-                            </div>
-                            {/* <Button onClick={() => getAuth()} >Test Auth</Button> */}
-                            <SocialAuth/>
+                            <br/>
+                        <div className="mt-3">
+                                <button onClick={(e) => onSubmit(e)} className="btn btn-success waves-effect waves-light w-100" type="button"> Connection </button>
+                        </div>
+                        <SocialAuth/>
                         </form>
+
                         <div className="mt-5 text-center" style={{display: 'none'}}>
                             <p>
                                 Vous n'avez pas de compte ? &nbsp;&nbsp;
                                 <a href="#!" onClick={() => change_component('register')} className="fw-medium text-primary"> Créer votre compte </a>
-                                {/* <Link to="register" className="fw-medium text-primary">Signup now </Link> */}
                             </p>
                         </div>
                     </div>

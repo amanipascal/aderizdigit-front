@@ -11,15 +11,6 @@ const Pwdreset = ({change_component}) => {
 
     const [showAlert, setShowAlert] = React.useState({show:false, severity: null, message: ""})
 
-    // React.useEffect(() => {
-    //   if (showAlert.show && showAlert.severity == "error") {
-    //     setTimeout(() => {
-    //         setShowAlert({show:false, severity: null, message: ""})
-    //     }, 5000);
-    //   }
-    // }, [showAlert])
-    
-
     const initialValues = {
         email: ""
     }

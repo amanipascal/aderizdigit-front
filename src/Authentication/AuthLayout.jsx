@@ -42,7 +42,7 @@ const AuthLayout = () => {
   const { search } = useLocation()
   
   const change_component = (compName) => {
-    Alert('OK')
+    // alert('OK')
     setAuthcomp(compName)
   }
 
