@@ -103,12 +103,10 @@ const Login = ({change_component}) => {
                 </div>
                 <div className="my-auto">
                     <Box  sx={{width: '100%', marginLeft: '5px'}}>
-                        {/* <GlobalProgress progression={state.progression}/> */}
                         <GlobalProgress progression={authProgress}/>
                     </Box>
                     <MyAlert {...state.alertProps} severity="error" />
                     <div className='d-flex justify-content-center'>
-                        {/* <h3 className="text-primary">Authentification</h3> */}
                         <Typography variant="h6" style={{color: 'green'}} gutterBottom component="div">
                             Authentification
                         </Typography>
@@ -116,25 +114,13 @@ const Login = ({change_component}) => {
                     <div className='d-flex justify-content-center'>
                         <p className="text-muted">Veuillez entrer vos parametres d'authentification </p>
                     </div>
-
                     <div className="mt-4">
-                        
                         <form noValidate>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email (code utilisateur)</label>
                                 <input  type="text" onChange={(e) => setCred('email', e.target.value)} value={credentials.email} className="form-control" id="email" placeholder="Entrer votre email"/>
                             </div>
                             <div className="mb-3">
-                                {/* ------------------------------------ */}
-                                {/* <div className="float-end">
-                                    <Link component="button" variant="body2"
-                                      onClick={() => change_component('reset')} 
-                                      className="text-muted"
-                                    >
-                                        Mot de passe oublié ?
-                                    </Link>
-                                </div> */}
-                                {/* ------------------------------------------ */}
                                 <label className="form-label">Mot de passe</label>
                                 <div className="input-group auth-pass-inputgroup">
                                     <input  type={showPwd ? 'text' : 'password'} onChange={(e) => setCred('password', e.target.value)} value={credentials.password} className="form-control" placeholder="Entrer votre password" aria-label="Password" aria-describedby="password-addon"/>
@@ -174,7 +160,6 @@ const Login = ({change_component}) => {
                         </div>
                         <SocialAuth/>
                         </form>
-
                         <div className="mt-5 text-center" style={{display: 'none'}}>
                             <p>
                                 Vous n'avez pas de compte ? &nbsp;&nbsp;
