@@ -8,26 +8,27 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Typography } from '@mui/material';
-import { Context } from '../../shared/Store';
+// import { Context } from '../../shared/Store';
 import { useParams } from 'react-router-dom';
 import { client } from '../../shared/feathersjs';
 import noContent from '../../assets/images/digital/noContent.png'
 import JotFormEmbeded from '../../shared/EmbedComponents/JotFormEmbeded';
+import { Context } from '../../shared/Store';
+
 
 
 // const NomEspace = "Tableau de bord du Directeur Général"
 
 const Ws_default = () => {
 
-  //const [state] = React.useContext(Context)
-  const [state, setState] = useContext(Context)
-
   let { menu_id, user_id } = useParams();
 
   const [value, setValue] = React.useState('1');
 
   const [ApiBloks, setApiBloks] = React.useState([]);
-  // const [wsData, setWsData] = React.useState({wsDesignation: "", wsDescription: ""});
+
+  const [state, setState] = useContext(Context)
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

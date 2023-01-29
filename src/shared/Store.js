@@ -33,6 +33,7 @@ const Store = ({children}) => {
 
     useEffect(() => {
       localStorage.setItem('globalContext', JSON.stringify(state))
+      console.log('Context STATE : ', state)
     }, [state])
     
   

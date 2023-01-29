@@ -90,8 +90,8 @@ const WscForm = ({handleClose, open, dataToUpdate }) => {
                           label="Plateforme d'origine" name="origin_tool" 
                           />
                         
+                        <TextInput label="Hauteur" name="height" type="text" placeholder="Hauteur"/>
                         <TextInput label="Largeur" name="width" type="text" placeholder="Largeur"/>
-                        <TextInput label="Hauteur d'origine" name="height" type="text" placeholder="Hauteur"/>
                         <Button type="submit" variant="contained" disabled={ !(formik.isValid) } color="secondary" style={{textTransform: 'none', marginTop: '20px'}} >
                             Valider
                         </Button>

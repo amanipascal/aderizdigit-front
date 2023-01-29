@@ -36,7 +36,7 @@ function hasNestedMenus(menu) {
     return menu.nested && !!menu.nested.length
 }
 
-const selectedMenuStyle = { //
+const selectedMenuStyle = {
     backgroundImage: 'linear-gradient(#079992, #78e08f, #b8e994, #f6e58d)',
     color: '#341f97',
     borderRadius: '10px',
@@ -52,9 +52,7 @@ React.useEffect(() => {
 
 
 const dataToWs = async (menu_id) => {
-    setState({
-        ...state, user_id
-    })
+    setState({ ...state, user_id })
 }
 
 function deroulerNested(nestedMenus) {

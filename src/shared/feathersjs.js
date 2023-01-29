@@ -5,7 +5,7 @@ import authentication from '@feathersjs/authentication-client';
 
 
 console.log('process.env.REACT_APP_API_URL : ', process.env.REACT_APP_API_URL)
-const socket = io('https://aderizdigit-backend.onrender.com', {
+const socket = io(process.env.REACT_APP_API_URL, {
   transports: ['websocket'],
   forceNew: true
 });

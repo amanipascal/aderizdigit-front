@@ -1,11 +1,13 @@
-import { Typography } from '@mui/material';
-import React, { useContext } from 'react'
+import { Tooltip, Typography } from '@mui/material';
+import React, { Fragment, useContext } from 'react'
 import {Row, Column} from 'simple-flexbox'
 import '../../assets/css/app.css'
 import { Context } from '../../shared/Store';
 import Account from './Account';
 
+
 const Main_header = ({handleCollapseChange}) => {
+
     const [userService, setUserService] = React.useState(null)
     const [state] = useContext(Context)
 
@@ -14,12 +16,8 @@ const Main_header = ({handleCollapseChange}) => {
     }, [])
 
     React.useEffect(() => {
-    //    console.log('userService : ', userService)
-    }, [userService])
-
-    
-    
-
+        console.log('state selected_menu === : ', state.selected_menu)
+    }, [state])
     
 
   return (
@@ -33,18 +31,34 @@ const Main_header = ({handleCollapseChange}) => {
             
             <Column vertical='center' horizontal='center' style={{width:'95%'}}>
                 <Row vertical='center' horizontal='flex-end' style={{width:'100%'}}>
-                    <Column vertical='center' horizontal='flex-start' style={{width:'20%'}}>
-                        <Typography variant="h5" style={{color: 'white', marginTop: "10px"}} gutterBottom>
-                            {userService}
-                        </Typography>
-                    </Column>
-                    <Column vertical='center' horizontal='center' style={{width:'70%'}}>
-                        <Typography variant="h6" style={{color: 'white'}} gutterBottom>
+                    <Column vertical='center' horizontal='flex-start' style={{width:'30%'}}>
+                        <Typography variant="h6" style={{color: 'white', marginTop: "5px"}} gutterBottom>
+                          
                             {
-                              state.selected_menu ? state.selected_menu.wsDesignation : ""
+                              userService && 
+                              (
+                                <Fragment>
+                                {
+                                    userService.length <= 30 ? userService
+                                    : (
+                                        <Tooltip title={userService} placement="right" arrow> 
+                                           <span> {`${userService.substring(0,30)}...`} </span> 
+                                        </Tooltip> 
+                                    )
+                                }
+                                </Fragment>
+                                )
                             }
                         </Typography>
                     </Column>
+                    <Column vertical='center' horizontal='start' style={{width:'60%'}}>
+                        <Typography variant="h6" style={{color: 'white'}} gutterBottom>
+                            {
+                              state.selected_menu && state.selected_menu.wsdesignation
+                            }
+                        </Typography>
+                    </Column>
+                    
                     <Column vertical='center' horizontal='flex-end' style={{width:'5%'}}>
                         <Account/>
                     </Column>

@@ -191,8 +191,8 @@ const WscList = ({List, handleClickOpen}) => {
               <TableCell align="left">{row.lib}</TableCell>
               <TableCell align="left">{row.api}</TableCell>
               <TableCell align="left">{row.origin_tool}</TableCell>
-              <TableCell align="left">{row.width}</TableCell>
               <TableCell align="left">{row.height}</TableCell>
+              <TableCell align="left">{row.width}</TableCell>
               <TableCell align="center">
                   <Button variant='outlined' color='info' onClick={() => Afficher(row)}  >Afficher</Button>
               </TableCell>
