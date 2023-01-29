@@ -147,7 +147,9 @@ const Login = ({change_component}) => {
                                 <div className="float-start">
                                 {/* <button type="button" onClick={() => change_component('reset')} >  Mot de passe oublié ? </button> */}
                                     <Link component="button" variant="body2" onClick={() => change_component('reset')} 
-                                      className="text-muted"> Mot de passe oublié ?  </Link>
+                                      className="text-muted">
+                                         Mot de passe oublié ?  
+                                    </Link>
                                 </div>
                             </div>
                             <br/>
